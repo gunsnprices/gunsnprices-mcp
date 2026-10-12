@@ -65,6 +65,24 @@ claude mcp add gunsnprices -- npx -y gunsnprices-mcp
 }
 ```
 
+**Claude Desktop, one click**: download `gunsnprices-mcp-<version>.mcpb` from the
+[latest release](https://github.com/gunsnprices/gunsnprices-mcp/releases/latest) and open it (MCP Bundle, Node.js included
+with Claude Desktop).
+
+**Docker**:
+
+```bash
+docker build -t gunsnprices-mcp https://github.com/gunsnprices/gunsnprices-mcp.git
+```
+
+```json
+{
+  "mcpServers": {
+    "gunsnprices": { "command": "docker", "args": ["run", "-i", "--rm", "gunsnprices-mcp"] }
+  }
+}
+```
+
 ## Things to ask
 
 - "What exactly is a `G19 GEN5 9MM 4.02 15RD FS MOS`, and where can I compare prices?"

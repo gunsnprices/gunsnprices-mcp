@@ -18,3 +18,30 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm test
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t gunsnprices-mcp .
+      - name: Image answers MCP over stdio
+        run: |
+          (printf '%s\n' \
+            '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"ci","version":"1"}}}' \
+            '{"jsonrpc":"2.0","method":"notifications/initialized"}' \
+            '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"identify_firearm_model","arguments":{"title":"Glock 19 Gen 5 9mm"}}}'; sleep 3) \
+            | timeout 60 docker run -i --rm gunsnprices-mcp | tee out.txt
+          grep -q 'Glock 19 Gen 5' out.txt
+
+  mcpb:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: ./scripts/build-mcpb.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mcpb
+          path: "*.mcpb"

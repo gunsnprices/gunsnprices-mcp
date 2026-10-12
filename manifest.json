@@ -1,0 +1,78 @@
+{
+  "manifest_version": "0.3",
+  "name": "gunsnprices-mcp",
+  "display_name": "GunsNPrices",
+  "version": "0.1.0",
+  "description": "Parse gun and ammo titles (model, caliber, cost per round); find GunsNPrices price comparison pages",
+  "long_description": "US gun and ammo shopping helper from GunsNPrices (gunsnprices.com), a price comparison site that tracks 40+ US gun and ammo stores. It parses product titles into brand, model, caliber, magazine capacity and barrel length, identifies firearm models (50 brands, Glock part numbers decoded), looks up calibers, computes ammo cost per round, and returns GunsNPrices pages that compare current prices. Runs locally, sends no data anywhere, no API key. It has no live prices: it links to the GunsNPrices pages that have them.",
+  "author": {
+    "name": "GunsNPrices",
+    "email": "app@gunsnprices.com",
+    "url": "https://gunsnprices.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gunsnprices/gunsnprices-mcp.git"
+  },
+  "homepage": "https://gunsnprices.com",
+  "documentation": "https://github.com/gunsnprices/gunsnprices-mcp#readme",
+  "support": "https://github.com/gunsnprices/gunsnprices-mcp/issues",
+  "icon": "assets/logo-512.png",
+  "server": {
+    "type": "node",
+    "entry_point": "src/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/src/index.js"
+      ],
+      "env": {}
+    }
+  },
+  "tools": [
+    {
+      "name": "parse_product_title",
+      "description": "Parse a gun or ammo product title into brand, model, calibers, magazine capacity, barrel length, rounds per box and cost per round, with GunsNPrices price pages."
+    },
+    {
+      "name": "identify_firearm_model",
+      "description": "Identify the brand, model family and exact model of a firearm (50 brands; Glock part numbers decoded)."
+    },
+    {
+      "name": "lookup_caliber",
+      "description": "Normalize a caliber name ('300 BLK', '12ga', '6.5 CM') or find calibers in a text; returns type and the ammo price page."
+    },
+    {
+      "name": "cost_per_round",
+      "description": "Compute ammo cost per round from a price and a round count (or a title to read it from)."
+    },
+    {
+      "name": "find_price_comparison_pages",
+      "description": "Find GunsNPrices pages comparing current prices across 40+ US stores for a model, brand or caliber."
+    },
+    {
+      "name": "list_supported",
+      "description": "List the 50 brands with model recognition or the 293 known calibers."
+    }
+  ],
+  "keywords": [
+    "firearms",
+    "guns",
+    "ammunition",
+    "ammo",
+    "caliber",
+    "price comparison",
+    "shopping"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}
