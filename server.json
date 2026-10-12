@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.gunsnprices/gunsnprices-mcp",
+  "title": "GunsNPrices",
+  "description": "Parse gun and ammo titles (model, caliber, cost per round); find GunsNPrices price comparison pages",
+  "repository": {
+    "url": "https://github.com/gunsnprices/gunsnprices-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://gunsnprices.com",
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "gunsnprices-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

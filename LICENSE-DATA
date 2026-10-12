@@ -1,0 +1,12 @@
+The data file src/data/links.js (links to GunsNPrices pages by brand, model family
+and model) is Copyright (c) 2026 GunsNPrices (https://gunsnprices.com) and is
+licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+You are free to share and adapt it for any purpose, including commercially, as
+long as you give appropriate credit: "GunsNPrices (gunsnprices.com)" with a link to
+https://gunsnprices.com, and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+The same data is published as a dataset at
+https://huggingface.co/datasets/gunsnprices/firearm-models

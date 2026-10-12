@@ -1,0 +1,34 @@
+{
+  "name": "gunsnprices-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for gun and ammo shopping: parse product titles, identify firearm models and calibers, cost per round, and GunsNPrices price comparison links.",
+  "mcpName": "io.github.gunsnprices/gunsnprices-mcp",
+  "type": "module",
+  "bin": {
+    "gunsnprices-mcp": "src/index.js"
+  },
+  "main": "./src/server.js",
+  "files": ["src", "LICENSE", "LICENSE-DATA", "CHANGELOG.md"],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "gunsnprices": "^0.1.1",
+    "zod": "^3.25.0"
+  },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "firearms", "guns", "ammunition", "ammo", "caliber", "price-comparison", "gunsnprices"],
+  "author": "GunsNPrices <app@gunsnprices.com> (https://gunsnprices.com)",
+  "license": "(MIT AND CC-BY-4.0)",
+  "homepage": "https://gunsnprices.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gunsnprices/gunsnprices-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gunsnprices/gunsnprices-mcp/issues"
+  }
+}
