@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gunsnprices": {
+      "command": "npx",
+      "args": ["-y", "gunsnprices-mcp"]
+    }
+  }
+}
