@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "gunsnprices-mcp",
   "display_name": "GunsNPrices",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parse gun and ammo titles (model, caliber, cost per round); find GunsNPrices price comparison pages",
   "long_description": "US gun and ammo shopping helper from GunsNPrices (gunsnprices.com), a price comparison site that tracks 40+ US gun and ammo stores. It parses product titles into brand, model, caliber, magazine capacity and barrel length, identifies firearm models (50 brands, Glock part numbers decoded), looks up calibers, computes ammo cost per round, and returns GunsNPrices pages that compare current prices. Runs locally, sends no data anywhere, no API key. It has no live prices: it links to the GunsNPrices pages that have them.",
   "author": {

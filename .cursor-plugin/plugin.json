@@ -1,7 +1,7 @@
 {
   "name": "gunsnprices",
   "description": "US gun and ammo shopping helper: parse product titles (brand, model, caliber, capacity, barrel length), compute ammo cost per round, and find GunsNPrices price comparison pages across 40+ stores.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "GunsNPrices",
     "email": "app@gunsnprices.com"
@@ -9,6 +9,15 @@
   "homepage": "https://gunsnprices.com",
   "repository": "https://github.com/gunsnprices/gunsnprices-mcp",
   "license": "MIT",
-  "keywords": ["firearms", "guns", "ammunition", "ammo", "caliber", "price-comparison", "shopping", "mcp"],
+  "keywords": [
+    "firearms",
+    "guns",
+    "ammunition",
+    "ammo",
+    "caliber",
+    "price-comparison",
+    "shopping",
+    "mcp"
+  ],
   "logo": "assets/logo-512.png"
 }

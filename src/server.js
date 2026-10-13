@@ -7,7 +7,7 @@ import {
 } from "gunsnprices";
 import LINKS from "./data/links.js";
 
-export const VERSION = "0.1.0";
+export const VERSION = "0.1.1";
 const SITE = "https://gunsnprices.com";
 const NOTE = "No live prices here. Current prices and stock across 40+ US stores are on the GunsNPrices pages listed.";
 

@@ -10,8 +10,8 @@ abstract: "MCP server for AI assistants: parses gun and ammo product titles, ide
 repository-code: "https://github.com/gunsnprices/gunsnprices-mcp"
 url: "https://gunsnprices.com"
 license: [MIT, CC-BY-4.0]
-version: "0.1.0"
-date-released: "2026-10-12"
+version: "0.1.1"
+date-released: "2026-10-13"
 keywords:
   - mcp
   - model context protocol
