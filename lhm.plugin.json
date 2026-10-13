@@ -1,0 +1,227 @@
+{
+  "author": "GunsNPrices",
+  "description": "MCP server for gun and ammo shopping: parse product titles, identify firearm models and calibers, cost per round, and GunsNPrices price comparison links.",
+  "homepage": "https://gunsnprices.com",
+  "identifier": "gunsnprices-gunsnprices-mcp",
+  "name": "GunsNPrices",
+  "prompts": [],
+  "resources": [],
+  "tags": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "firearms",
+    "guns",
+    "ammunition",
+    "ammo",
+    "caliber",
+    "price-comparison",
+    "gunsnprices"
+  ],
+  "tools": [
+    {
+      "name": "parse_product_title",
+      "title": "Parse a gun or ammo product title",
+      "description": "Parse a firearm or ammunition product title from any store into structured data: firearm or ammo, brand, model (50 brands, e.g. 'Glock 19 Gen 5 MOS'), calibers, magazine capacity, barrel length in inches, rounds per box and, with a price, cost per round. Also returns GunsNPrices pages to compare current prices.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Product title as a store shows it, e.g. 'Glock 19 Gen5 MOS 9mm 4.02in 15rd'"
+          },
+          "brand": {
+            "type": "string",
+            "description": "Manufacturer, if known (helps when the title doesn't name it)"
+          },
+          "price": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Listing price in USD; for ammo it gives cost per round"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "identify_firearm_model",
+      "title": "Identify a firearm model",
+      "description": "Identify the brand, model family and exact model of a firearm from a title or a short description (e.g. 'G19 Gen5 MOS', 'Sig P365 XL', 'S&W M&P Shield Plus'). Covers 50 brands including Glock, Sig Sauer, Smith & Wesson, Ruger, Springfield, Beretta, Taurus, Mossberg, Remington, Savage and Henry. Glock part numbers (e.g. PA195S203) are decoded too. Returns GunsNPrices pages for the model, its family and the brand.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Firearm title or description"
+          },
+          "brand": {
+            "type": "string",
+            "description": "Manufacturer, if known"
+          },
+          "mpn": {
+            "type": "string",
+            "description": "Manufacturer part number, if known"
+          }
+        },
+        "required": [
+          "title"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "lookup_caliber",
+      "title": "Look up a caliber",
+      "description": "Normalize a caliber or cartridge name ('9mm Luger', '5.56 NATO', '300 BLK', '12ga', '6.5 CM') or find every caliber mentioned in a text. Returns the standard name, type (handgun, rifle, rimfire, shotgun, airgun, muzzleloader) and the GunsNPrices page comparing ammo prices for it.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Caliber name or any text that mentions calibers"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "cost_per_round",
+      "title": "Ammo cost per round",
+      "description": "Compute the cost per round of an ammo listing from its price and round count. If the round count is not given, it is read from the title ('50/Box', '1,000 Rounds', 'Box of 20', '20/25').",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "price": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Price in USD"
+          },
+          "rounds": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "description": "Rounds in the package"
+          },
+          "title": {
+            "type": "string",
+            "description": "Ammo title, used to read the round count and caliber"
+          }
+        },
+        "required": [
+          "price"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "find_price_comparison_pages",
+      "title": "Find GunsNPrices price comparison pages",
+      "description": "Find GunsNPrices pages that compare current prices across 40+ US gun and ammo stores for a firearm model, brand or caliber, e.g. 'Glock 19', 'Sig Sauer P365', 'Ruger', '9mm ammo', '6.5 Creedmoor'. Use it when the user asks where to buy a gun or ammo, or where it is cheapest. Returns the most specific pages first.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Model, brand or caliber"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "list_supported",
+      "title": "List supported brands or calibers",
+      "description": "List the 50 firearm brands with model recognition, or the 293 known calibers (optionally of one type).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "what": {
+            "type": "string",
+            "enum": [
+              "brands",
+              "calibers"
+            ],
+            "description": "What to list"
+          },
+          "caliber_type": {
+            "type": "string",
+            "enum": [
+              "handgun",
+              "rifle",
+              "rimfire",
+              "shotgun",
+              "airgun",
+              "muzzleloader"
+            ],
+            "description": "Only calibers of this type"
+          }
+        },
+        "required": [
+          "what"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "openWorldHint": false
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    }
+  ],
+  "version": "0.1.0"
+}
