@@ -9,7 +9,7 @@ authors:
 abstract: "MCP server for AI assistants: parses gun and ammo product titles, identifies firearm models and calibers, computes cost per round and links to GunsNPrices price comparison pages."
 repository-code: "https://github.com/gunsnprices/gunsnprices-mcp"
 url: "https://gunsnprices.com"
-license: [MIT, CC-BY-4.0]
+license: MIT
 version: "0.1.1"
 date-released: "2026-10-13"
 keywords:
