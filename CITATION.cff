@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "GunsNPrices MCP server"
+type: software
+authors:
+  - name: "GunsNPrices"
+    website: "https://gunsnprices.com"
+    email: "app@gunsnprices.com"
+abstract: "MCP server for AI assistants: parses gun and ammo product titles, identifies firearm models and calibers, computes cost per round and links to GunsNPrices price comparison pages."
+repository-code: "https://github.com/gunsnprices/gunsnprices-mcp"
+url: "https://gunsnprices.com"
+license: [MIT, CC-BY-4.0]
+version: "0.1.0"
+date-released: "2026-10-12"
+keywords:
+  - mcp
+  - model context protocol
+  - firearms
+  - ammunition
+  - price comparison
