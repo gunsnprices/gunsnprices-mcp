@@ -3,6 +3,7 @@
 [![npm](https://img.shields.io/npm/v/gunsnprices-mcp)](https://www.npmjs.com/package/gunsnprices-mcp)
 [![Tests](https://github.com/gunsnprices/gunsnprices-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/gunsnprices/gunsnprices-mcp/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY%204.0%20data-blue)](#license)
+[![AllMCPs Verified](https://allmcps.com/api/badge/gunsnprices)](https://allmcps.com/mcp/gunsnprices?verify=8d561c6f-87a3-470b-9a00-a0d43133cfb0)
 
 An [MCP](https://modelcontextprotocol.io) server that helps AI assistants with gun and ammo shopping questions. It reads
 firearm and ammunition product titles (brand, model, caliber, magazine capacity, barrel length, rounds per box),
